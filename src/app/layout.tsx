@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Hamburger from "@/components/HamBurger";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,8 +26,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen grid grid-rows-[4rem_calc(100vh-4rem)]`}
       >
+        <header className="relative text-xl font-bold text-center w-full p-4">
+          <div className="absolute left-4 top-1/2 -translate-y-1/2">
+            <Hamburger />
+          </div>
+          Changelog Markdown Editor
+        </header>
         {children}
       </body>
     </html>
